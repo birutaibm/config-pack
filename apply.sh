@@ -26,21 +26,24 @@ apt-get install -y maven
 apt-get install -y git
 snap install node --classic
 apt-get -o Dpkg::Options::="--force-overwrite" install -y yarn
-snap install -y code --classic
+snap install code --classic
 snap install insomnia
 apt install -y fonts-firacode
 npm install -g eslint
 npm install -g expo-cli
 apt install -y zsh
-chsh -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# init current dir as config-pack git repository
-git init
-git remote add github https://github.com/birutaibm/config-pack.git
-
+cd ~
+git clone https://github.com/birutaibm/config-pack.git
+cd config-pack
 
 # create .gitconfig
+rm ~/.gitconfig
 ln -rs ./.gitconfig ~/.gitconfig
+mkdir ~/.config/Code
+mkdir ~/.config/Code/User
 ln -rs vscode/settings.json ~/.config/Code/User/settings.json
+
+chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
