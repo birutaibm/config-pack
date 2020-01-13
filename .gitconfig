@@ -1,5 +1,5 @@
 [core]
-  editor = gedit -w
+  editor = xed -w
 
 [user]
   email = birutaibm@gmail.com
