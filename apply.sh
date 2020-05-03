@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if ! [ $(id -u) = 0 ]; then
    echo "The script need to be run as root." >&2
    exit 1
@@ -26,12 +25,16 @@ apt update
 # install
 apt install -y google-chrome-stable
 apt install -y openjdk-11-jdk
-apt-get install -y eclipse
 apt-get install -y maven
 apt-get install -y git
 apt-get install -y gimp inkscape
 apt-get install -y python3-gpg dropbox
-snap install node --classic
+add-apt-repository ppa:openshot.developers/ppa
+add-apt-repository ppa:openshot.developers/libopenshot-daily
+apt-get update
+apt-get install -y openshot-qt libopenshot
+snap install --classic eclipse
+snap install node --classic --channel=13/stable
 apt-get -o Dpkg::Options::="--force-overwrite" install -y yarn
 snap install code --classic
 snap install insomnia
